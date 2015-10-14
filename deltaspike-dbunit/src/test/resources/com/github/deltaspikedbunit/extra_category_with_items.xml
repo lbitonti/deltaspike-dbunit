@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+
+    <inventory_category id="1002" version="1" category_name="extra_category" category_description="extra description"/>
+
+    <inventory_item id="2003" version="1" item_name="extra_item_1" item_description="extra desc 1" category_id="1002"/>
+    <inventory_item id="2004" version="1" item_name="extra_item_2" item_description="extra desc 2" category_id="1002"/>
+
+</dataset>

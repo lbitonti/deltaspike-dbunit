@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+
+    <inventory_category category_name="default_category" category_description="default description"/>
+    <inventory_category category_name="extra_category" category_description="extra description"/>
+
+    <inventory_item item_name="default_item_1" item_description="default desc 1"/>
+    <inventory_item item_name="default_item_2" item_description="default desc 2"/>
+
+    <inventory_item item_name="extra_item_1" item_description="extra desc 1"/>
+    <inventory_item item_name="extra_item_2" item_description="extra desc 2"/>
+
+</dataset>

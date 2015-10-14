@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+
+  <inventory_item id="2005" />
+
+  <!-- In Apache Derby inventory_category cannot be truncated as a foreign key violation error is returned
+       even if inventory_item is empty -->
+  <!--<inventory_category id="1003" />-->
+
+</dataset>

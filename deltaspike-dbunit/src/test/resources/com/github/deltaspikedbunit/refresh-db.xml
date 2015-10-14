@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+
+  <inventory_category id="1003" version="1" category_name="refreshed_category" category_description="refreshed description"/>
+  
+  <inventory_item id="2005" version="1" item_name="refreshed_item_1" item_description="refreshed desc 1" category_id="1003"/>
+  <inventory_item id="2006" version="1" item_name="refreshed_item_2" item_description="refreshed desc 2" category_id="1003"/>
+
+</dataset>

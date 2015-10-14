@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+
+  <inventory_category category_name="existing_category" category_description="existing description"/>
+
+  <inventory_item item_name="existing_item" item_description="existing item desc" category_id="1000"/>
+  <inventory_item item_name="existing_item_other" item_description="existing item other desc" category_id="1000"/>
+
+</dataset>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+
+  <inventory_item item_name="existing_item" item_description="existing item desc" />
+  <inventory_item item_name="existing_item_other" item_description="existing item other desc" />
+
+</dataset>

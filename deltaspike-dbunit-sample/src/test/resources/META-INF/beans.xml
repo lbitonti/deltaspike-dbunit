@@ -1,0 +1,11 @@
+<beans>
+    <alternatives>
+        <class>com.github.deltaspikedbunit.deltaspike.TestAwareTransactionStrategy</class>
+    </alternatives>
+    <interceptors>
+        <class>com.github.deltaspikedbunit.deltaspike.TransactionalTestInterceptor</class>
+        <class>org.apache.deltaspike.jpa.impl.transaction.TransactionalInterceptor</class>
+        <class>com.github.deltaspikedbunit.deltaspike.DbUnitOperationsInterceptor</class>
+    </interceptors>
+</beans>
+

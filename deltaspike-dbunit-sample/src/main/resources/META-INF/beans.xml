@@ -1,0 +1,9 @@
+<beans>
+    <alternatives>
+        <class>org.apache.deltaspike.jpa.impl.transaction.EnvironmentAwareTransactionStrategy</class>
+    </alternatives>
+    <interceptors>
+        <class>org.apache.deltaspike.jpa.impl.transaction.TransactionalInterceptor</class>
+    </interceptors>
+</beans>
+

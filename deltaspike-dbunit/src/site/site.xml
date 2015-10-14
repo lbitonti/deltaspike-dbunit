@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/DECORATION/1.1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/DECORATION/1.1.0 http://maven.apache.org/xsd/decoration-1.1.0.xsd">
+
+	<custom>
+		<fluidoSkin>
+			<gitHub>
+				<projectId>lbitonti/deltaspike-dbunit</projectId>
+				<ribbonOrientation>right</ribbonOrientation>
+				<ribbonColor>black</ribbonColor>
+			</gitHub>
+		</fluidoSkin>
+	</custom>
+
+	<publishDate position="none" />
+	<version position="right" />
+
+	<bannerLeft>
+		<name>${project.name}</name>
+	</bannerLeft>
+
+	<bannerRight>
+		<src></src>
+	</bannerRight>
+
+	<skin>
+		<groupId>org.apache.maven.skins</groupId>
+		<artifactId>maven-fluido-skin</artifactId>
+		<version>1.1</version>
+	</skin>
+
+	<body>
+		<links>
+			<item name="Deltaspike" href="http://deltaspike.apache.org/" />
+			<item name="DBUnit" href="http://www.dbunit.org/" />
+			<item name="JUnit" href="http://www.junit.org/" />
+		</links>
+		
+		<breadcrumbs>
+			<item name="GitHub" href="http://www.github.com"/>
+			<item name="deltaspike-dbunit" href="https://github.com/lbitonti/deltaspike-dbunit"/>
+		</breadcrumbs>
+		
+		<menu name="Overview">
+			<item name="Deltaspike DBUnit" href="/index.html" />
+			<item name="Quick Start Example" href="/sample.html"/>
+			<item name="Frequently Asked Questions" href="/faq.html"/>
+		</menu>
+		<menu ref="parent" />
+		<menu ref="reports" />
+	</body>
+</project>

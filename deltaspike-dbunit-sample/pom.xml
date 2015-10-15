@@ -12,6 +12,7 @@
 	<packaging>jar</packaging>
 	<name>Deltaspike DBUnit Sample</name>
 	<description>Sample application for deltaspike-dbunit project</description>
+	<url>https://lbitonti.github.io/deltaspike-dbunit-sample</url>
 	<licenses>
 		<license>
 			<name>Apache 2</name>
@@ -23,13 +24,14 @@
 		<url>https://github.com/lbitonti/deltaspike-dbunit</url>
 		<connection>scm:git:git://github.com/lbitonti/deltaspike-dbunit.git</connection>
 		<developerConnection>scm:git:git@github.com:lbitonti/deltaspike-dbunit.git</developerConnection>
-	  <tag>HEAD</tag>
-  </scm>
+	    <tag>HEAD</tag>
+    </scm>
 	<prerequisites>
 		<maven>3.0.3</maven>
 	</prerequisites>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<github.global.server>github</github.global.server>
 		<java.version>1.7</java.version>
 		<org.eclipse.persistence-version>2.5.2</org.eclipse.persistence-version>
 		<deltaspike.version>1.2.1</deltaspike.version>
@@ -160,7 +162,7 @@
 			<plugin>
 				<groupId>com.github.github</groupId>
 				<artifactId>site-maven-plugin</artifactId>
-				<version>0.10</version>
+				<version>0.12</version>
 				<configuration>
 					<message>Creating site for ${project.version}</message>
 				</configuration>

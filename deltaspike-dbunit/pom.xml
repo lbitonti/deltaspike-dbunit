@@ -15,6 +15,7 @@
         Integration between Deltaspike and DBUnit. It allows, using simple annotations, to setup and
         teardown database tables as well as checking expected table contents once a test completes.
     </description>
+    <url>https://lbitonti.github.io/deltaspike-dbunit</url>
     <licenses>
         <license>
             <name>Apache 2</name>
@@ -172,6 +173,22 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-gpg-plugin</artifactId>-->
+                <!--<version>1.5</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>sign-artifacts</id>-->
+                        <!--<phase>verify</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>sign</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+
             <plugin>
                 <groupId>com.github.github</groupId>
                 <artifactId>site-maven-plugin</artifactId>

@@ -1,7 +1,7 @@
 # Frequently Asked Questions
 
 ## Is this project in a Maven repository?
-Yes it is. see http://mvnrepository.com/artifact/com.github.deltaspikedbunit/deltaspike-dbunit for details.
+It should soon be available at http://mvnrepository.com/artifact/com.github.deltaspikedbunit/deltaspike-dbunit
 
 ## Is there a way to clear out the Database when tests are complete?
 The recommendation from DBUnit is that you have a good database setup and don't cleanup (see http://www.dbunit.org/bestpractices.html#nocleanup).  That being said there are occasions where you might want to cleanup your database after every test.

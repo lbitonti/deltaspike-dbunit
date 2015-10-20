@@ -17,7 +17,7 @@ This project is built using Apache Maven.  Here is the complete POM file with al
 		<version>9</version>
 		<relativePath />
 	</parent>
-	<groupId>com.github.deltaspike-dbunit</groupId>
+	<groupId>com.github.lbitonti</groupId>
 	<artifactId>deltaspike-dbunit-sample</artifactId>
 	<version>0.5.0</version>
 	<packaging>jar</packaging>
@@ -274,7 +274,7 @@ This project is built using Apache Maven.  Here is the complete POM file with al
         </dependency>
 
         <dependency>
-            <groupId>com.github.deltaspike-dbunit</groupId>
+            <groupId>com.github.lbitonti</groupId>
             <artifactId>deltaspike-dbunit</artifactId>
             <version>0.5.0</version>
             <scope>test</scope>

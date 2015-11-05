@@ -8,7 +8,7 @@
     </parent>
     <groupId>com.github.lbitonti</groupId>
     <artifactId>deltaspike-dbunit</artifactId>
-    <version>0.5.0</version>
+    <version>0.6.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Deltaspike DBUnit</name>
     <description>
@@ -205,6 +205,18 @@
                         <phase>site</phase>
                     </execution>
                 </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.6</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                </configuration>
             </plugin>
         </plugins>
     </build>

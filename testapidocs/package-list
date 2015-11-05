@@ -1,0 +1,8 @@
+com.github.deltaspikedbunit.expected
+com.github.deltaspikedbunit.operation
+com.github.deltaspikedbunit.sample.inventory.entity
+com.github.deltaspikedbunit.sample.inventory.repository
+com.github.deltaspikedbunit.sample.inventory.util
+com.github.deltaspikedbunit.setup
+com.github.deltaspikedbunit.teardown
+com.github.deltaspikedbunit.testutils

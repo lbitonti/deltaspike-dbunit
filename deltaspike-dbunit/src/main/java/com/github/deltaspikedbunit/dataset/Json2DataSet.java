@@ -33,7 +33,7 @@ import java.util.*;
  * @author Luigi Bitonti
  * @author Lieven DOCLO
  */
-public class JsonDataSet extends AbstractDataSet {
+public class Json2DataSet extends AbstractDataSet {
 	// The parser for the dataset JSON file
 	private JsonITableParser tableParser = new JsonITableParser();
 
@@ -47,7 +47,7 @@ public class JsonDataSet extends AbstractDataSet {
 	 *
 	 * @param file A JSON dataset file
 	 */
-	public JsonDataSet(File file) {
+	public Json2DataSet(File file) {
 		tables = tableParser.getTables(file);
 	}
 
@@ -56,7 +56,7 @@ public class JsonDataSet extends AbstractDataSet {
 	 *
 	 * @param is An inputstream pointing to a JSON dataset
 	 */
-	public JsonDataSet(InputStream is) {
+	public Json2DataSet(InputStream is) {
 		tables = tableParser.getTables(is);
 	}
 

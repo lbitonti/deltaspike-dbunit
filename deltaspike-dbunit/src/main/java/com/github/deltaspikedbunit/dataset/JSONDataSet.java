@@ -17,10 +17,8 @@ package com.github.deltaspikedbunit.dataset;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.dbunit.dataset.*;
-import org.dbunit.dataset.datatype.DataType;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
@@ -37,7 +35,7 @@ import java.util.*;
  */
 public class JsonDataSet extends AbstractDataSet {
 	// The parser for the dataset JSON file
-	private JSONITableParser tableParser = new JSONITableParser();
+	private JsonITableParser tableParser = new JsonITableParser();
 
 	private final ObjectMapper mapper = new ObjectMapper();
 
@@ -70,7 +68,7 @@ public class JsonDataSet extends AbstractDataSet {
 	}
 
 
-	private class JSONITableParser extends AbstractDataSetParser{
+	private class JsonITableParser extends AbstractDataSetParser{
 
 		/**
 		 * Parses a JSON dataset input stream and returns the list of DBUnit

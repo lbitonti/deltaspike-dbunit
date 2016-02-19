@@ -17,7 +17,7 @@
 package com.github.deltaspikedbunit.annotation;
 
 import com.github.deltaspikedbunit.dataset.DataSetLoader;
-import com.github.deltaspikedbunit.dataset.FlatXmlDataSetLoader;
+import com.github.deltaspikedbunit.dataset.DefaultDatasetLoader;
 import com.github.deltaspikedbunit.operation.DatabaseOperationLookup;
 import com.github.deltaspikedbunit.operation.DefaultDatabaseOperationLookup;
 
@@ -48,7 +48,7 @@ public @interface DbUnitConfiguration {
 	 * {@link DataSetLoader} and must have a default constructor.
 	 * @return the data set loader class
 	 */
-	Class<? extends DataSetLoader> dataSetLoader() default FlatXmlDataSetLoader.class;
+	Class<? extends DataSetLoader> dataSetLoader() default DefaultDatasetLoader.class;
 
 	/**
 	 * Returns the class that will be used to lookup DBUnit database operations. The specific class must implement

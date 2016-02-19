@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2015 the original author or authors
+ * Copyright 2002-2016 the original author or authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,122 +15,67 @@
  */
 package com.github.deltaspikedbunit.dataset;
 
-/**
- * Created by rafael-pestano on 22/07/2015.
- */
 import org.dbunit.dataset.*;
-import org.dbunit.dataset.datatype.DataType;
 import org.yaml.snakeyaml.Yaml;
 
+import java.io.File;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-public class YamlDataSet implements IDataSet {
 
-  private Map<String, MyTable> tables = new HashMap<String, MyTable>();
+/**
+ * DBUnit DataSet format for Yaml based datasets. It is similar to the flat XML
+ * layout, but has some improvements (columns are calculated by parsing the
+ * entire dataset, not just the first row). It uses Snakeyaml as yaml processor.
+ *
+ * @author Luigi Bitonti
+ * @author Lieven DOCLO
+ */
+public class YamlDataSet extends AbstractDataSet {
+    // The parser for the dataset Yaml file
+    private YamlITableParser tableParser = new YamlITableParser();
 
-  public YamlDataSet(InputStream source) {
-    @SuppressWarnings("unchecked")
-    Map<String, List<Map<String, Object>>> data = (Map<String, List<Map<String, Object>>>) new Yaml().load(source);
-    for (Map.Entry<String, List<Map<String, Object>>> ent : data.entrySet()) {
-      String tableName = ent.getKey();
-      List<Map<String, Object>> rows = ent.getValue();
-      createTable(tableName.toUpperCase(), rows);
-    }
-  }
+    // The tables after parsing
+    private List<ITable> tables;
 
-  class MyTable implements ITable {
-    String                    name;
-
-    List<Map<String, Object>> data;
-
-    ITableMetaData            meta;
-
-    MyTable(String name, List<String> columnNames) {
-      this.name = name;
-      this.data = new ArrayList<Map<String, Object>>();
-      meta = createMeta(name, columnNames);
+    /**
+     * Creates a Yaml dataset based on a file
+     *
+     * @param file A Yaml dataset file
+     */
+    public YamlDataSet(File file) {
+        tables = tableParser.getTables(file);
     }
 
-    ITableMetaData createMeta(String name, List<String> columnNames) {
-      Column[] columns = null;
-      if (columnNames != null) {
-        columns = new Column[columnNames.size()];
-        for (int i = 0; i < columnNames.size(); i++)
-          columns[i] = new Column(columnNames.get(i), DataType.UNKNOWN);
-      }
-      return new DefaultTableMetaData(name, columns);
+    /**
+     * Creates a Yaml dataset based on an inputstream
+     *
+     * @param is An inputstream pointing to a Yaml dataset
+     */
+    public YamlDataSet(InputStream is) {
+        tables = tableParser.getTables(is);
     }
 
-    public int getRowCount() {
-      return data.size();
+    @Override
+    protected ITableIterator createIterator(boolean reverse)
+            throws DataSetException {
+        return new DefaultTableIterator(
+                tables.toArray(new ITable[tables.size()]));
     }
 
-    public ITableMetaData getTableMetaData() {
-      return meta;
+    class YamlITableParser extends AbstractDataSetParser {
+        @Override
+        public List<ITable> getTables(InputStream iStream) {
+            List<ITable> tables = new ArrayList<>();
+            Map<String, List<Map<String, Object>>> data =
+                    (Map<String, List<Map<String, Object>>>) new Yaml().load(iStream);
+
+            for (Map.Entry<String, List<Map<String, Object>>> entry : data.entrySet()) {
+                ITable table = processTable(entry.getKey(), entry.getValue());
+                tables.add(table);
+            }
+            return tables;
+        }
     }
-
-    public Object getValue(int row, String column) throws DataSetException {
-      if (data.size() <= row)
-        throw new RowOutOfBoundsException("" + row);
-      return data.get(row).get(column.toUpperCase());
-    }
-
-    public void addRow(Map<String, Object> values) {
-      data.add(convertMap(values));
-    }
-
-    Map<String, Object> convertMap(Map<String, Object> values) {
-      Map<String, Object> ret = new HashMap<String, Object>();
-      for (Map.Entry<String, Object> ent : values.entrySet()) {
-        ret.put(ent.getKey().toUpperCase(), ent.getValue());
-      }
-      return ret;
-    }
-
-  }
-
-  MyTable createTable(String name, List<Map<String, Object>> rows) {
-    MyTable table = new MyTable(name, rows.size() > 0 ? new ArrayList<String>(rows.get(0).keySet()) : null);
-    for (Map<String, Object> values : rows)
-      table.addRow(values);
-    tables.put(name.toUpperCase(), table);
-    return table;
-  }
-
-  public ITable getTable(String tableName) throws DataSetException {
-    return tables.get(tableName.toUpperCase());
-  }
-
-  public ITableMetaData getTableMetaData(final String tableName) throws DataSetException {
-    MyTable myTable = tables.get(tableName.toUpperCase());
-    if(myTable != null){
-      return tables.get(tableName.toUpperCase()).getTableMetaData();
-    }
-    return null;
-  }
-
-  public String[] getTableNames() throws DataSetException {
-    return (String[]) tables.keySet().toArray(new String[tables.size()]);
-  }
-
-  public ITable[] getTables() throws DataSetException {
-    return (ITable[]) tables.values().toArray(new ITable[tables.size()]);
-  }
-
-  public ITableIterator iterator() throws DataSetException {
-    return new DefaultTableIterator(getTables());
-  }
-
-  public ITableIterator reverseIterator() throws DataSetException {
-    return new DefaultTableIterator(getTables(), true);
-  }
-
-  public boolean isCaseSensitiveTableNames() {
-    return false;
-  }
 
 }

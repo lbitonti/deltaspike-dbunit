@@ -1,0 +1,18 @@
+inventory_category:
+  - id: 1001
+    version: 1
+    category_name: default_category
+    category_description: default description
+  
+inventory_item:
+  - id: 2001
+    version: 1
+    item_name: "default_item_1"
+    item_description: "default desc 1"
+    category_id: 1001
+  - id: 2002
+    version: 1
+    item_name: default_item_2
+    item_description: default desc 2
+    category_id: 1001
+

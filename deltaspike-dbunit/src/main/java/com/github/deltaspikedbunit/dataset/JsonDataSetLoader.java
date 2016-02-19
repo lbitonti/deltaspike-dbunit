@@ -21,7 +21,7 @@ import java.net.URL;
 
 
 /**
- * A {@link DataSetLoader data set loader} that can be used to load {@link Json2DataSet json datasets}
+ * A {@link DataSetLoader data set loader} that can be used to load {@link JsonDataSet json datasets}
  *
  * @author Rafael Pestano
  */
@@ -29,7 +29,7 @@ public class JsonDataSetLoader extends AbstractDataSetLoader {
 
     @Override
     protected IDataSet createDataSet(URL resourceUrl) throws Exception {
-        return new Json2DataSet(resourceUrl.openStream());
+        return new JsonDataSet(resourceUrl.openStream());
     }
 
 }

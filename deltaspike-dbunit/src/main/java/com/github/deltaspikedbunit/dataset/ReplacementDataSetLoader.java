@@ -47,7 +47,7 @@ public class ReplacementDataSetLoader implements DataSetLoader {
 	 * data and with {@link #DEFAULT_OBJECT_REPLACEMENTS}.
 	 */
 	public ReplacementDataSetLoader() {
-		this(new DefaultDatasetLoader());
+		this(new ContentGuessingDatasetLoader());
 	}
 
 	/**

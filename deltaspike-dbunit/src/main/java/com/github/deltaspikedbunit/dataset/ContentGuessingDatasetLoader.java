@@ -1,4 +1,3 @@
-package com.github.deltaspikedbunit.dataset;
 /*
  * Copyright 2002-2015 the original author or authors
  *
@@ -14,16 +13,20 @@ package com.github.deltaspikedbunit.dataset;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+package com.github.deltaspikedbunit.dataset;
+
 import org.dbunit.dataset.IDataSet;
 
 import java.net.URL;
 
+
 /**
- * This loader tried to infer dataset loder using dataset name extension.
+ * This loader tried to infer dataset loader using dataset name extension.
  *
- * Created by pestano on 19/02/16.
+ * @author Rafael Pestano
  */
-public class DefaultDatasetLoader extends AbstractDataSetLoader {
+public class ContentGuessingDatasetLoader extends AbstractDataSetLoader {
 
     @Override
     protected IDataSet createDataSet(URL resourceUrl) throws Exception {

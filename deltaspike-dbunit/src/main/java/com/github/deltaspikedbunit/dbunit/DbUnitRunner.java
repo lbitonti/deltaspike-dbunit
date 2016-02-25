@@ -24,7 +24,7 @@ import com.github.deltaspikedbunit.annotation.ExpectedDatabase;
 import com.github.deltaspikedbunit.assertion.DatabaseAssertion;
 import com.github.deltaspikedbunit.dataset.DataSetLoader;
 import com.github.deltaspikedbunit.dataset.DataSetModifier;
-import com.github.deltaspikedbunit.dataset.DefaultDatasetLoader;
+import com.github.deltaspikedbunit.dataset.ContentGuessingDatasetLoader;
 import com.github.deltaspikedbunit.dataset.FlatXmlDataSetLoader;
 import com.github.deltaspikedbunit.operation.DatabaseOperationLookup;
 import com.github.deltaspikedbunit.operation.DefaultDatabaseOperationLookup;
@@ -89,7 +89,7 @@ public class DbUnitRunner {
      */
     protected DataSetLoader dataSetLoader(DbUnitConfiguration dbUnitConfiguration) {
         if (dbUnitConfiguration == null || dbUnitConfiguration.dataSetLoader() == null) {
-            return new DefaultDatasetLoader();
+            return new ContentGuessingDatasetLoader();
         }
         try {
             return dbUnitConfiguration.dataSetLoader().newInstance();

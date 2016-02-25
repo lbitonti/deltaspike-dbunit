@@ -43,7 +43,7 @@ public class ReplacementDataSetLoader implements DataSetLoader {
 	private final Map<String, String> subStringReplacements;
 
 	/**
-	 * Creates a new {@link ReplacementDataSetLoader} using a {@link FlatXmlDataSetLoader} to load the source
+	 * Creates a new {@link ReplacementDataSetLoader} using a {@link ContentGuessingDatasetLoader} to load the source
 	 * data and with {@link #DEFAULT_OBJECT_REPLACEMENTS}.
 	 */
 	public ReplacementDataSetLoader() {
